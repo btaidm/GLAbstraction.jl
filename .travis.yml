@@ -7,13 +7,14 @@ julia:
 notifications:
   email: false
 
-sudo: required
-
-# Based on https://gist.github.com/winterz/10cc2741d466cbd8ff21 for setting newer version of cmake
-
-before_install: 
-  - ./test/setup-travis.sh
-  - "export DISPLAY=:99.0"
-
+addons:
+  apt:
+    packages:
+    - cmake
+    - libxxf86vm-dev
+    sources:
+    - kubuntu-backports
+before_script:
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then export DISPLAY=:99.0; sh -e /etc/init.d/xvfb start; fi
 
 # uncomment the following lines to override the default test script
