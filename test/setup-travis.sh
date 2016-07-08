@@ -13,5 +13,8 @@ else
   echo "yes" | sudo add-apt-repository ppa:smspillaz/cmake-2.8.12
   sudo apt-get update -qq
   sudo apt-get install cmake cmake-data
+  export DISPLAY=:99.0
+  sh -e /etc/init.d/xvfb start
+  sleep 3 # give xvfb some time to start
   # sudo apt-get install 
 fi
