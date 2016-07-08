@@ -11,7 +11,9 @@ sudo: required
 
 # Based on https://gist.github.com/winterz/10cc2741d466cbd8ff21 for setting newer version of cmake
 
-before_install: ./test/setup-travis.sh
+before_install: 
+  - ./test/setup-travis.sh
+  - "export DISPLAY=:99.0"
 
 
 # uncomment the following lines to override the default test script
